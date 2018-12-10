@@ -4,8 +4,10 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 
 import routes from '../../util/routes';
 
-import AuthScreen from '../AuthScreen';
+import LoginScreen from '../LoginScreen';
 import AppScreen from '../AppScreen';
+
+import { RootStyled } from './styles';
 
 class Root extends Component {
     componentDidMount() {
@@ -16,12 +18,12 @@ class Root extends Component {
 
     render() {
         return (
-            <div>
+            <RootStyled>
                 <Switch>
-                    <Route exact path={routes.login} component={AuthScreen} />
+                    <Route exact path={routes.login} component={LoginScreen} />
                     <Route path={routes.home} component={AppScreen} />
                 </Switch>
-            </div>
+            </RootStyled>
         );
     }
 }
