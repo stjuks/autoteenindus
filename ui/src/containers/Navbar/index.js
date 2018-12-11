@@ -13,10 +13,6 @@ class Navbar extends Component {
     }
 
     render() {
-        const { 
-            
-        } = this.props;
-
         return (
             <NavbarStyled>
                 <LeftStyled>

@@ -9,9 +9,9 @@ export const SectionStyled = styled.div`
 
 export const TitleStyled = styled.div`
     background: #3893ff;
-    padding: .5rem 1rem;
-    font-size: 1.25rem;
+    padding: .5rem .75rem;
     color: white;
+    font-weight: bold;
 `;
 
 export const ContentStyled = styled.div`
@@ -19,5 +19,4 @@ export const ContentStyled = styled.div`
     border-width: 0 1px 1px 1px;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
-    padding: .5rem 1rem;
 `;

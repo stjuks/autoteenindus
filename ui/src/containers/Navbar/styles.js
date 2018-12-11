@@ -16,6 +16,7 @@ export const NavbarStyled = styled.div`
 export const LeftStyled = styled.div`
     text-align: left;
     padding-left: 1rem;
+    font-size: .9rem;
 `;
 
 export const MidStyled = styled.div`
@@ -26,4 +27,5 @@ export const MidStyled = styled.div`
 export const RightStyled = styled.div`
     text-align: right;
     padding-right: 1rem;
+    font-size: .9rem;
 `;

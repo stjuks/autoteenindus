@@ -8,5 +8,6 @@ export const AppScreenStyled = styled.div`
 `;
 
 export const ContentStyled = styled.div`
-    width: 60%;
+    padding: 2rem 5rem;
+    overflow: auto;
 `
