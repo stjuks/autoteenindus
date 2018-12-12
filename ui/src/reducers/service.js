@@ -6,6 +6,8 @@ import {
     FETCH_SERVICE_DETAILS
 } from '../actions/types/service';
 
+import { RESET_STATE } from '../actions/types';
+
 const INITIAL_STATE = {
     summary: [],
     allServices: [],
@@ -48,6 +50,9 @@ export default function reducer(state=INITIAL_STATE, action) {
                 ...state,
                 serviceDetails: action.payload
             }
+        }
+        case RESET_STATE: {
+            return INITIAL_STATE
         }
         default: {
             break;

@@ -4,7 +4,9 @@ const router = express.Router();
 const db = require('../db');
 const { Service } = require('../db/query');
 
-router.get('/activeOrNonActive', (req, res) => {
+const { verifyToken } = require('../util/authHelper');
+
+router.get('/activeOrNonActive', verifyToken, (req, res) => {
     const sql = Service.get.activeOrNonActive;
     
     db.query(sql, (err, result) => {
@@ -13,7 +15,7 @@ router.get('/activeOrNonActive', (req, res) => {
     })
 });
 
-router.get('/heldOrNonActive', (req, res) => {
+router.get('/heldOrNonActive', verifyToken, (req, res) => {
     const sql = Service.get.heldOrNonActive;
 
     db.query(sql, (err, result) => {
@@ -22,7 +24,7 @@ router.get('/heldOrNonActive', (req, res) => {
     })
 })
 
-router.get('/all', (req, res) => {
+router.get('/all', verifyToken, (req, res) => {
     const sql = Service.get.all;
 
     db.query(sql, (err, result) => {
@@ -31,7 +33,7 @@ router.get('/all', (req, res) => {
     })
 })
 
-router.get('/summary', (req, res) => {
+router.get('/summary', verifyToken, (req, res) => {
     const sql = Service.get.summary;
 
     db.query(sql, (err, result) => {
@@ -40,7 +42,7 @@ router.get('/summary', (req, res) => {
     })
 })
 
-router.get('/details', (req, res) => {
+router.get('/details', verifyToken, (req, res) => {
     const { serviceId } = req.query;
 
     const sql = Service.get.details(serviceId);
@@ -64,7 +66,7 @@ router.get('/details', (req, res) => {
     })
 })
 
-router.post('/end', (req, res) => {
+router.post('/end', verifyToken, (req, res) => {
     const { xmin, serviceId } = req.body;
 
     const sql = Service.end(xmin, serviceId);

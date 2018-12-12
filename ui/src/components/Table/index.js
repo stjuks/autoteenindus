@@ -22,26 +22,28 @@ class Table extends Component {
 
         return (
             <TableStyled>
-                <RowStyled heading>
-                    {headings.map(heading => (
-                        <td>{heading}</td>
-                    ))}
-                </RowStyled>
-                {data.map(row => (
-                    <RowStyled onClick={() => onRowClick && onRowClick(row)} clickable={clickable}>
-                        {Object.keys(row).map((key, i) => (
-                            ignore.indexOf(key) === -1 &&
-                            <td width={sizes[i]}>
-                                {row[key]}
-                            </td>
+                <tbody>
+                    <RowStyled heading>
+                        {headings.map((heading, i) => (
+                            <td key={i}>{heading}</td>
                         ))}
-                        {addCol &&
-                            <td onClick={() => addColClick(row)}>
-                                {addCol}
-                            </td>
-                        }
                     </RowStyled>
-                ))}
+                    {data.map((row, i) => (
+                        <RowStyled key={i} onClick={() => onRowClick && onRowClick(row)} clickable={clickable}>
+                            {Object.keys(row).map((key, i) => (
+                                ignore.indexOf(key) === -1 &&
+                                <td key={i} width={sizes[i]}>
+                                    {row[key]}
+                                </td>
+                            ))}
+                            {addCol &&
+                                <td onClick={() => addColClick(row)}>
+                                    {addCol}
+                                </td>
+                            }
+                        </RowStyled>
+                    ))}
+                </tbody>
             </TableStyled>
         );
     }

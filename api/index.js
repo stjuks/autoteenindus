@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-// const auth = require('./routes/auth');
+const auth = require('./routes/auth');
 const service = require('./routes/service');
 
 const app = express();
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-// app.use('/api/auth', auth);
+app.use('/api/auth', auth);
 app.use('/api/service', service);
 
 const port = process.env.PORT || 8080;
