@@ -17,6 +17,5 @@ export const TitleStyled = styled.div`
 export const ContentStyled = styled.div`
     border: 1px solid #c0c0c0;
     border-width: 0 1px 1px 1px;
-    border-bottom-left-radius: .5rem;
-    border-bottom-right-radius: .5rem;
+    border-radius: 0 0 .5rem .5rem;
 `;

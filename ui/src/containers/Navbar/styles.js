@@ -5,8 +5,9 @@ export const NavbarStyled = styled.div`
     width: 100%;
     box-shadow: 0 6px 10px rgba(0, 0, 0, .1);
     display: flex;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    flex: 1;
+    flex-shrink: 0;
+    padding: 1rem 0;
 
     div {
         flex: 1;

@@ -12,8 +12,13 @@ class Table extends Component {
             sizes,
             headings,
             clickable,
-            onRowClick
+            onRowClick,
+            ignoreValues,
+            addCol,
+            addColClick
         } = this.props;
+
+        const ignore = ignoreValues || [];
 
         return (
             <TableStyled>
@@ -23,13 +28,18 @@ class Table extends Component {
                     ))}
                 </RowStyled>
                 {data.map(row => (
-                    <RowStyled onClick={() => onRowClick(row)} clickable={clickable}>
-                        {Object.values(row).map((val, i) => (
-                            <td 
-                                title={clickable && 'Click to view details'} 
-                                width={sizes[i]}>{val}
+                    <RowStyled onClick={() => onRowClick && onRowClick(row)} clickable={clickable}>
+                        {Object.keys(row).map((key, i) => (
+                            ignore.indexOf(key) === -1 &&
+                            <td width={sizes[i]}>
+                                {row[key]}
                             </td>
                         ))}
+                        {addCol &&
+                            <td onClick={() => addColClick(row)}>
+                                {addCol}
+                            </td>
+                        }
                     </RowStyled>
                 ))}
             </TableStyled>

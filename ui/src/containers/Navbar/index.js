@@ -6,6 +6,7 @@ import {
 } from './styles';
 
 import routes from '../../util/routes';
+import history from '../../util/history';
 
 class Navbar extends Component {
     logout = () => {
@@ -19,10 +20,10 @@ class Navbar extends Component {
                     <Link to={routes.login}>Logi välja</Link>
                 </LeftStyled>
                 <MidStyled>
-                    Autoteenindus
+                    <Link to={routes.home}>Autoteenindus</Link>
                 </MidStyled>
                 <RightStyled>
-                    Steven Juks (Juhataja)
+                    Tere, Nimi (Juhataja)
                 </RightStyled>
             </NavbarStyled>
         );

@@ -1,36 +1,54 @@
+import {
+    FETCH_ACTIVE_OR_NON_ACTIVE_SERVICES,
+    FETCH_HELD_OR_NON_ACTIVE_SERVICES,
+    FETCH_SERVICE_SUMMARY,
+    FETCH_ALL_SERVICES,
+    FETCH_SERVICE_DETAILS
+} from '../actions/types/service';
+
 const INITIAL_STATE = {
-    summary: [
-        {
-            seisundi_kood: 5,
-            seisundi_nimetus: 'LÕPETATUD',
-            teenuste_koguarv: 4
-        }
-    ],
-    allServices: [
-        {
-            teenus_kood: 1,
-            teenus_nimetus: 'Veermiku kontroll',
-            hind: parseFloat(Math.round(15 * 100) / 100).toFixed(4),
-            teenus_kirjeldus: 'Vaadatakse üle vedrude, amortide, õõtshoobade, rooli otste, stabilisaatori varraste, stabilisaatori pukside ja muude veermiku osade seisukord',
-            reg_aeg: '2018-12-08 00:00:00',
-            seisund: 'Lõpetatud',
-            registreerija: 'Lucile Burgess (lucile.burgess@frolix.net)'
-        },
-        {
-            teenus_kood: 2,
-            teenus_nimetus: 'Salongi üldpuhastus',
-            hind: parseFloat(Math.round(15 * 100) / 100).toFixed(4),
-            teenus_kirjeldus: 'Puhastatakse kogu salong',
-            reg_aeg: '2018-12-08 00:00:00',
-            seisund: 'Ootel',
-            registreerija: 'Lucile Burgess (lucile.burgess@frolix.net)'
-        }
-    ]
+    summary: [],
+    allServices: [],
+    heldOrNonActiveServices: [],
+    activeOrNonActiveServices: [],
+    serviceDetails: {
+        kategooriad: []
+    }
 };
 
 export default function reducer(state=INITIAL_STATE, action) {
     
     switch (action.type) {
+        case FETCH_ACTIVE_OR_NON_ACTIVE_SERVICES().type: {
+            return {
+                ...state,
+                activeOrNonActiveServices: action.payload
+            }
+        }
+        case FETCH_HELD_OR_NON_ACTIVE_SERVICES().type: {
+            return {
+                ...state,
+                heldOrNonActiveServices: action.payload
+            }
+        }
+        case FETCH_ALL_SERVICES().type: {
+            return {
+                ...state,
+                allServices: action.payload
+            }
+        }
+        case FETCH_SERVICE_SUMMARY().type: {
+            return {
+                ...state,
+                summary: action.payload
+            }
+        }
+        case FETCH_SERVICE_DETAILS().type: {
+            return {
+                ...state,
+                serviceDetails: action.payload
+            }
+        }
         default: {
             break;
         }

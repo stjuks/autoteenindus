@@ -6,7 +6,8 @@ import {
 } from '../../styled/form';
 
 import {
-    LoginFormStyled
+    LoginFormStyled,
+    FormTitleStyled
 } from './styles';
 
 class LoginForm extends Component {
@@ -30,8 +31,12 @@ class LoginForm extends Component {
     render() {
         return (
             <LoginFormStyled onSubmit={e => this.onSubmit(e)}>
+                <FormTitleStyled>
+                    Autoteenindus
+                </FormTitleStyled>
                 <LabelStyled>Kasutajanimi:</LabelStyled>
                 <InputStyled 
+                    autoComplete="off"
                     onChange={e => this.handleChange(e)} 
                     name="username" 
                     type="text"

@@ -8,6 +8,9 @@ export const AppScreenStyled = styled.div`
 `;
 
 export const ContentStyled = styled.div`
-    padding: 2rem 5rem;
+    padding: 1rem 5rem;
+    width: 100%;
+    flex: 1;
+    box-sizing: border-box;
     overflow: auto;
 `
