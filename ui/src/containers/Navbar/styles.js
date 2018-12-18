@@ -27,6 +27,6 @@ export const MidStyled = styled.div`
 
 export const RightStyled = styled.div`
     text-align: right;
-    padding-right: 1rem;
+    padding-right: 3rem;
     font-size: .9rem;
 `;

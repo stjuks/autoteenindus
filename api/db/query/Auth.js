@@ -1,7 +1,7 @@
 module.exports = {
     login: (email, password) => ({
         text: `
-            SELECT e_meil, eesnimi || ' ' || perenimi AS nimi FROM public.isik WHERE e_meil = $1 AND parool = $2;
+            SELECT f_on_juhataja($1, $2);
         `, values: [email, password]
     })
 };

@@ -48,7 +48,11 @@ router.get('/details', verifyToken, (req, res) => {
     const sql = Service.get.details(serviceId);
 
     db.query(sql, (err, result) => {
-        if (err) res.status(400).json({ msg: 'Viga teenuste laadimisel!' });
+        if (err) return res.status(400).json({ msg: 'Viga teenuste laadimisel!' });
+        if (result.rows.length == 0) {
+            return res.status(404).json({ msg: 'Sellise koodiga teenust ei leitud!' });
+        }
+
         const parsed = result.rows[0];
         parsed.kategooriad = [];
 
@@ -72,6 +76,7 @@ router.post('/end', verifyToken, (req, res) => {
     const sql = Service.end(xmin, serviceId);
 
     db.query(sql, (err, result) => {
+        console.log(err);
         if (err) res.status(400).json({ msg: 'Viga teenuse lõpetamisel!' });
         res.end();
     })

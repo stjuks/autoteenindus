@@ -16,30 +16,20 @@ class Navbar extends Component {
     }
 
     render() {
-        const {
-            name
-        } = this.props;
-
         return (
             <NavbarStyled>
                 <LeftStyled>
-                    <Link to={routes.login} onClick={() => this.logout()}>Logi välja</Link>
+                    
                 </LeftStyled>
                 <MidStyled>
                     <Link to={routes.home}>Autoteenindus</Link>
                 </MidStyled>
                 <RightStyled>
-                    Tere, {name}
+                    <Link to={routes.login} onClick={() => this.logout()}>Logi välja</Link>
                 </RightStyled>
             </NavbarStyled>
         );
     }
 }
 
-const mapStateToProps = store => {
-    return {
-        name: store.auth.name
-    }
-}
-
-export default connect(mapStateToProps)(Navbar);
+export default connect()(Navbar);

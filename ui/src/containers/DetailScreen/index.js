@@ -39,44 +39,46 @@ class DetailScreen extends Component {
                     DETAILVAADE
                 </TitleStyled>
                 <DetailTableStyled>
-                    <tr>  
-                        <td width="200px"><strong>Teenuse nimetus:</strong></td> 
-                        <td>{teenus_nimetus}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Teenuse kood:</strong></td> 
-                        <td>{teenus_kood}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Teenuse kirjeldus:</strong></td> 
-                        <td>{teenus_kirjeldus}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hind (EUR):</strong></td> 
-                        <td>{hind}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Registreerimise aeg:</strong></td> 
-                        <td>{reg_aeg}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Seisund:</strong></td> 
-                        <td>{seisund}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Registreerija:</strong></td> 
-                        <td>{registreerija}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Raskusaste:</strong></td> 
-                        <td>{raskusaste_nimetus}</td>
-                    </tr>
-                    {kategooriad.map(kategooria => 
-                        <tr>
-                            <td><strong>{kategooria.kategooria_tyyp}:</strong></td> 
-                            <td>{kategooria.kategooria_nimetus}</td>
+                    <tbody>
+                        <tr>  
+                            <td width="200px"><strong>Teenuse nimetus:</strong></td> 
+                            <td>{teenus_nimetus}</td>
                         </tr>
-                    )}
+                        <tr>
+                            <td><strong>Teenuse kood:</strong></td> 
+                            <td>{teenus_kood}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Teenuse kirjeldus:</strong></td> 
+                            <td>{teenus_kirjeldus}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hind (EUR):</strong></td> 
+                            <td>{hind}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Registreerimise aeg:</strong></td> 
+                            <td>{reg_aeg}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Seisund:</strong></td> 
+                            <td>{seisund}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Registreerija:</strong></td> 
+                            <td>{registreerija}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Raskusaste:</strong></td> 
+                            <td>{raskusaste_nimetus}</td>
+                        </tr>
+                        {kategooriad.map((kategooria, i) => 
+                            <tr key={i}>
+                                <td><strong>{kategooria.kategooria_tyyp}:</strong></td> 
+                                <td>{kategooria.kategooria_nimetus}</td>
+                            </tr>
+                        )}
+                    </tbody>
                 </DetailTableStyled>
             </DetailScreenStyled>
         );

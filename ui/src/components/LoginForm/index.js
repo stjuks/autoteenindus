@@ -7,7 +7,8 @@ import {
 
 import {
     LoginFormStyled,
-    FormTitleStyled
+    FormTitleStyled,
+    ErrorStyled
 } from './styles';
 
 class LoginForm extends Component {
@@ -18,17 +19,17 @@ class LoginForm extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        console.log('lol');
         const { username, password } = this.state;
         this.props.onSubmit(username, password);
     }
 
     handleChange = e => {
-        console.log(e.target.value);
         this.setState({ [e.target.name]: e.target.value });
     }
 
     render() {
+        const { error } = this.props;
+
         return (
             <LoginFormStyled onSubmit={e => this.onSubmit(e)}>
                 <FormTitleStyled>
@@ -50,6 +51,9 @@ class LoginForm extends Component {
                 <ButtonStyled>
                     Logi sisse
                 </ButtonStyled>
+                <ErrorStyled>
+                    {error || ''}
+                </ErrorStyled>
             </LoginFormStyled>
         );
     }

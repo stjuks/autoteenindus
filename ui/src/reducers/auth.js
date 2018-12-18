@@ -6,9 +6,7 @@ import {
 import { RESET_STATE } from '../actions/types';
 
 const INITIAL_STATE = {
-    email: '',
-    name: '',
-    loginError: '',
+    loginError: null,
     isLoggedIn: false
 };
 
@@ -18,10 +16,8 @@ export default function reducer(state=INITIAL_STATE, action) {
         case LOGIN_SUCCESS().type: {
             return {
                 ...state,
-                name: action.payload.nimi,
-                email: action.payload.e_meil,
                 isLoggedIn: true,
-                loginError: ''
+                loginError: null
             }
         }
         case LOGIN_ERROR().type: {

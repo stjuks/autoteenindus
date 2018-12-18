@@ -26,12 +26,13 @@ export const login = (email, password) => {
     }
 }
 
-export const verify = () => {
+export const verify = redirectPath => {
     return async dispatch => {
         try {
             const { data } = await API.auth.verify();
             dispatch(LOGIN_SUCCESS(data));
-            history.push(routes.home);
+            redirectPath = redirectPath === routes.login ? routes.home : redirectPath;
+            history.push(redirectPath);
         } catch(err) {
             history.push(routes.login);
         }
@@ -42,7 +43,6 @@ export const logout = () => {
     return dispatch => {
         localStorage.removeItem('token');
         history.push(routes.login);
-        dispatch(RESET_STATE);
     }
 }
 

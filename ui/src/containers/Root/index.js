@@ -12,7 +12,7 @@ import { RootStyled } from './styles';
 
 class Root extends Component {
     componentDidMount() {
-        this.props.dispatch(verify());
+        this.props.dispatch(verify(this.props.location.pathname));
     }
 
     render() {

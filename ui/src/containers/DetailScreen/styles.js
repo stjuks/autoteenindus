@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DetailScreenStyled = styled.table`
+export const DetailScreenStyled = styled.div`
     width: 100%;
     padding-top: 2rem;
     

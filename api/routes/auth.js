@@ -12,16 +12,14 @@ router.post('/login', (req, res) => {
     const sql = Auth.login(email, password);
 
     db.query(sql, (err, result) => {
-        if (result.rows.length === 0) {
+        if (!result.rows[0].f_on_juhataja || err) {
             return res.status(401).json({ 
-                msg: 'Vale e-mail või parool!' 
+                msg: 'Vale kasutajanimi või parool!' 
             });
         }
 
-        const user = result.rows[0];
-
-        jwt.sign(user, process.env.JWT_SECRET, (err, token) => {
-            return res.json({ token, ...user });
+        jwt.sign({ iat: Date.now() }, process.env.JWT_SECRET, (err, token) => {
+            return res.json({ token });
         })
     })
 })

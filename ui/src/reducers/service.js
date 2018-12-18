@@ -51,7 +51,7 @@ export default function reducer(state=INITIAL_STATE, action) {
                 serviceDetails: action.payload
             }
         }
-        case RESET_STATE: {
+        case RESET_STATE.type: {
             return INITIAL_STATE
         }
         default: {
