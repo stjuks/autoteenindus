@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { tableRows } from '../../util/constants';
 import history from '../../util/history';
 import routes from '../../util/routes';
+import theme from '../../util/theme';
 
 import { 
     endService as endServiceAction,
@@ -73,7 +74,7 @@ class OverviewScreen extends Component {
                         ignoreValues={tableRows.heldOrNonActiveServices.ignoreValues}
                     />
                 </Section>
-                <Section title="LÕPETA TEENUS">
+                <Section color={theme.COLOR_2()} title="LÕPETA TEENUS">
                     <Table
                         data={activeOrNonActiveServices}
                         headings={tableRows.activeOrNonActiveServices.headings}

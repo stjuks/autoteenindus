@@ -20,7 +20,6 @@ app.use('/api/service', service);
 const port = process.env.PORT || 8080;
 
 app.get('/*', (req, res) => {
-    console.log('xd');
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 })
 

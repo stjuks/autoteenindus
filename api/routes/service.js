@@ -10,7 +10,8 @@ router.get('/activeOrNonActive', verifyToken, (req, res) => {
     const sql = Service.get.activeOrNonActive;
     
     db.query(sql, (err, result) => {
-        if (err) res.status(400).json({ msg: 'Viga teenuste laadimisel!' });
+        console.log(err);
+        if (err) return res.status(400).json({ msg: 'Viga teenuste laadimisel!' });
         res.json(result.rows);
     })
 });
@@ -19,7 +20,7 @@ router.get('/heldOrNonActive', verifyToken, (req, res) => {
     const sql = Service.get.heldOrNonActive;
 
     db.query(sql, (err, result) => {
-        if (err) res.status(400).json({ msg: 'Viga teenuste laadimisel!' });
+        if (err) return res.status(400).json({ msg: 'Viga teenuste laadimisel!' });
         res.json(result.rows);
     })
 })
@@ -28,7 +29,7 @@ router.get('/all', verifyToken, (req, res) => {
     const sql = Service.get.all;
 
     db.query(sql, (err, result) => {
-        if (err) res.status(400).json({ msg: 'Viga teenuste laadimisel!' });
+        if (err) return res.status(400).json({ msg: 'Viga teenuste laadimisel!' });
         res.json(result.rows);
     })
 })
@@ -37,7 +38,7 @@ router.get('/summary', verifyToken, (req, res) => {
     const sql = Service.get.summary;
 
     db.query(sql, (err, result) => {
-        if (err) res.status(400).json({ msg: 'Viga teenuste laadimisel!' });
+        if (err) return res.status(400).json({ msg: 'Viga teenuste laadimisel!' });
         res.json(result.rows);
     })
 })
@@ -76,8 +77,7 @@ router.post('/end', verifyToken, (req, res) => {
     const sql = Service.end(xmin, serviceId);
 
     db.query(sql, (err, result) => {
-        console.log(err);
-        if (err) res.status(400).json({ msg: 'Viga teenuse lõpetamisel!' });
+        if (err) return res.status(400).json({ msg: 'Viga teenuse lõpetamisel!' });
         res.end();
     })
 })

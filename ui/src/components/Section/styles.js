@@ -8,14 +8,33 @@ export const SectionStyled = styled.div`
 `;
 
 export const TitleStyled = styled.div`
-    background: #3893ff;
+    background: ${({ theme, color }) => color || theme.COLOR_1()};
     padding: .5rem .75rem;
     color: white;
     font-weight: bold;
+    cursor: pointer;
+    display: flex;
+
+    img {
+        height: 1rem;
+        width: 1rem;
+        margin-left: .5rem;
+    }
 `;
 
 export const ContentStyled = styled.div`
+    height: ${({ isOpened }) => isOpened ? '100%' : 0};
     border: 1px solid #c0c0c0;
     border-width: 0 1px 1px 1px;
     border-radius: 0 0 .5rem .5rem;
+    overflow: hidden;
 `;
+
+export const ExpandIconStyled = styled.div`
+    float: right;
+`
+
+export const TitleTextStyled = styled.div`
+    margin-right: auto;
+    
+`
